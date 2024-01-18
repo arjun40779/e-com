@@ -1,0 +1,21 @@
+.footer {
+	background-color: black;
+	color: white;
+	padding: 2rem 0;
+}
+.footer-top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer-item li {
+	cursor: pointer;
+	margin: 2rem 0;
+	font-size: 1.4rem;
+	width: fit-content;
+	border-bottom: 1px solid black;
+}
+
+.footer-item li:hover {
+	border-bottom: 1px solid white;
+}
