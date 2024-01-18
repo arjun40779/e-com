@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { productData } from "../../assets/productData";
 import "./NewArrival.css";
 import Card from "../Product/Card";
-
+import db from "../../firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 export default function NewArrival() {
+	useEffect(() => {
+		const unset = onSnapshot(collection(db, "products"), (snapshot) => {
+			console.log(snapshot.docs.map((doc) => doc.data()));
+		});
+		return unset;
+	}, []);
 	return (
 		<div className="new-arrival text-center p-16">
 			<h1 className="heading font-thin pb-8 ">NEW ARRIVAL T-SHIRTS</h1>
