@@ -6,7 +6,7 @@ import SingleProductPage from "../pages/SingleProductPage";
 
 export default function Main() {
 	return (
-		<div className="wrapper">
+		<div className="wrapper min-h-screen">
 			<div className="main containerr">
 				<Routes>
 					<Route exact path="/" element={<Homepage />} />

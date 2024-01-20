@@ -1,5 +1,6 @@
 .product-info-container {
-	height: 300vh;
+	height: unset;
+	width: 60%;
 	position: relative;
 }
 .product-info {

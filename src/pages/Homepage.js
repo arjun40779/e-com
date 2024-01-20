@@ -5,7 +5,11 @@ import NewArrival from "../components/NewArrivals/NewArrival";
 
 export default function Homepage() {
 	useEffect(() => {
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "instant", // or 'instant' for no animation
+		});
 	});
 	return (
 		<div className="homepage">
