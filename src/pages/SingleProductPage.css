@@ -1,0 +1,21 @@
+.product-info-container {
+	height: 300vh;
+	position: relative;
+}
+.product-info {
+	position: sticky;
+	top: 10rem;
+	padding: 4rem;
+}
+.product-info p {
+	font-size: 1.3rem;
+	margin-bottom: 1.25rem;
+	line-height: 2;
+}
+.cart-btn {
+	font-size: 1.25rem;
+	padding: 1rem;
+}
+.size-list {
+	border: 1px solid;
+}

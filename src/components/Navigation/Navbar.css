@@ -12,12 +12,13 @@ p.offer {
 	text-transform: uppercase;
 }
 .navbar {
+	/* 	height: 7rem; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 2rem 4rem;
 	background-color: white;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	margin: auto;
 	position: sticky;
 	position: -webkit-sticky;
@@ -81,7 +82,7 @@ ul.nav-list {
 .search input {
 	width: 150px;
 	border: none;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	padding: 0.5rem;
 	outline: none;
 }

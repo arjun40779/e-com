@@ -4,21 +4,38 @@ import { FiSearch } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
 import { GiCrownedSkull } from "react-icons/gi";
 import "./Navbar.css";
+import Modal from "../Modal/Modal";
+import Signin from "../Authentication/Signin";
+import { Link } from "react-router-dom";
 export default function Navbar() {
+	const [open, setOpen] = useState(false);
 	const [isNavSticky, setIsNavSticky] = useState(false);
 	useEffect(() => {
-		const handleScroll = () => {
-			const scrollY = window.scrollY;
+		let lastScrollPosition = 0;
 
-			setIsNavSticky(scrollY > 100);
-		};
+		// Function to handle the scroll event
+		function handleScroll2() {
+			const currentScrollPosition = window.scrollY;
+			if (currentScrollPosition < 300) {
+				setIsNavSticky(false);
+				return;
+			}
+			// Check if the current position is greater than the last position to determine scroll direction
+			if (currentScrollPosition > lastScrollPosition) {
+				// Scrolling down
+				setIsNavSticky(false);
+			} else {
+				// Scrolling up
+				setIsNavSticky(true);
+			}
+			// Update the last scroll position
+			lastScrollPosition = currentScrollPosition;
+		}
 
-		// Add the event listener when the component mounts
-		window.addEventListener("scroll", handleScroll);
-
-		// Remove the event listener when the component unmounts
+		// Attach the handleScroll function to the scroll event
+		window.addEventListener("scroll", handleScroll2);
 		return () => {
-			window.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("scroll", handleScroll2);
 		};
 	}, []);
 	useEffect(() => {}, [isNavSticky]);
@@ -37,10 +54,12 @@ export default function Navbar() {
 						<li>Men</li>
 						<li>Women</li>
 					</ul>
-					<div className="brand flex items-center gap-4">
-						<GiCrownedSkull />
-						PREMIUM
-					</div>
+					<Link to={"/"}>
+						<div className="brand flex items-center gap-4">
+							<GiCrownedSkull />
+							PREMIUM
+						</div>{" "}
+					</Link>
 					<ul className="nav-icons">
 						<li>
 							<div className="search">
@@ -55,14 +74,17 @@ export default function Navbar() {
 						</li>
 
 						<li>
-							<FiUser className="fill" />
+							<FiUser onClick={() => setOpen(true)} className="fill" />
 						</li>
 						<li>
 							<FiShoppingCart className="fill" />
 						</li>
 					</ul>
-				</div>
-			</div>
+				</div>{" "}
+			</div>{" "}
+			<Modal open={open} setOpen={setOpen}>
+				<Signin />
+			</Modal>
 		</>
 	);
 }

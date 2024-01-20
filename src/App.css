@@ -52,3 +52,9 @@ h3.sub-heading {
 	font-size: 1.2rem;
 	color: rgb(176, 175, 171);
 }
+a {
+	text-decoration: none;
+	all: unset;
+	font-size: 1rem;
+	cursor: pointer;
+}

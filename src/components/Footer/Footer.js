@@ -1,4 +1,5 @@
 import React from "react";
+import { GiCrownedSkull } from "react-icons/gi";
 import "./Footer.css";
 export default function Footer() {
 	return (
@@ -21,6 +22,12 @@ export default function Footer() {
 						<h3 className="sub-heading">STORE LOCATION</h3>
 						<li>A-101, ABC, XYZ PQR, MNO,ABC</li>
 					</ul>
+				</div>
+				<div className="flex w-full justify-center text-xs border-t border-grey p-4">
+					<div className="brand flex items-center gap-4 text-white text-xs">
+						<GiCrownedSkull className="text-white" />
+						PREMIUM
+					</div>
 				</div>
 			</div>
 		</div>
